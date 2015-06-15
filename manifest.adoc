@@ -6,6 +6,8 @@
 . stringDrawing
 . concentricCircles
 . Mandala
+. Thermograph
+. Thermograph2D
 
 == Other
 
