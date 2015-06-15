@@ -19,29 +19,11 @@ public class Circle{
     public var lineWidth = 2.0
     
     
-    
     public init() { }
     
     public init( center: Point, radius: Double) {
         self.center = center
         self.radius = radius
-    }
-    
-    public func includes_point(P: Point) -> Bool {
-        if self.center.distance_to(P) <= self.radius {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    public func overlaps(C: Circle) -> Bool {
-        let sum_of_radii = self.radius + C.radius
-        if self.center.distance_to(C.center) < sum_of_radii {
-            return true
-        } else {
-            return false
-        }
     }
     
     public func rotate(center: Point, angle: Double)  {
@@ -53,12 +35,7 @@ public class Circle{
         
     }
     
-    public func translate(dx: Double, dy: Double)  {
-        
-        self.center.x += dx
-        self.center.y += dy
-        
-    }
+
     
     public func draw(frame: CGRect) {
         
