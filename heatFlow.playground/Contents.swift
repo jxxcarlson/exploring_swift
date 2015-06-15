@@ -2,12 +2,12 @@
 
 import Cocoa
 
-typealias state = [Double]
-typealias stateArray = [state]
+typealias vector = [Double]
+typealias matrix = [vector]
 
-func next_state(x: state, k: Double) -> state {
+func next_state(x: vector, k: Double) -> vector {
     
-    var y = state(count: x.count, repeatedValue:0.0)
+    var y = vector(count: x.count, repeatedValue:0.0)
     let lastIndex = x.count - 1
     
     // Boundary conditions:
@@ -21,15 +21,15 @@ func next_state(x: state, k: Double) -> state {
     return y
 }
 
-func run(initial_state:state, n: Int) -> stateArray {
-    var sa:stateArray = [initial_state]
+func run(initial_state:vector, n: Int) -> matrix {
+    var sa:matrix = [initial_state]
     for(var i = 1; i < n; i++) {
         sa = sa + [next_state(sa[i-1], k: 0.8)]
     }
     return sa
 }
 
-var c1: state = [1.0, 0, 0, 0, 0, 0.3, 0.9, 0.3, 0, 0]
+var c1: vector = [1.0, 0, 0, 0, 0, 0.3, 0.9, 0.3, 0, 0]
 var result = run(c1, n: 10)
 for state in result {
     print(state)
@@ -41,11 +41,11 @@ result[0].count
 
 class Thermograph {
     
-    var temperatureArray = [Double]()
+    var state = vector()
     
-    init( data: [Double] ) {
+    init( data: vector ) {
         
-        temperatureArray = data
+        state = data
     }
     
 
@@ -53,7 +53,7 @@ class Thermograph {
         
         let width = frame.width
         let height = frame.height
-        let n = temperatureArray.count
+        let n = state.count
         var x = CGFloat(0.0)
         let dx = CGFloat(width/CGFloat(n))
         
@@ -61,7 +61,7 @@ class Thermograph {
             
             let currentRect = NSMakeRect(x, 0, dx, height)
             x = x + dx
-            let temperature = CGFloat(temperatureArray[i])
+            let temperature = CGFloat(state[i])
             let currentColor = NSColor(red: temperature, green: 0.0,
                 blue: 0.0, alpha: 1.0)
             currentColor.set()
@@ -75,11 +75,11 @@ class Thermograph {
 
 class Thermograph2D {
     
-    var temperatureArray = stateArray()
+    var state = matrix()
     
-    init( data: stateArray ) {
+    init( data: matrix ) {
         
-        temperatureArray = data
+        state = data
     }
     
     
@@ -87,8 +87,8 @@ class Thermograph2D {
         
         let width = frame.width
         let height = frame.height
-        let n_rows = temperatureArray.count
-        let n_cols = (temperatureArray[0]).count
+        let n_rows = state.count
+        let n_cols = (state[0]).count
         var x = CGFloat(0.0)
         var y = CGFloat(0.0)
         let dx = CGFloat(width/CGFloat(n_cols))
@@ -100,7 +100,7 @@ class Thermograph2D {
                 
                 let currentRect = NSMakeRect(x, y, dx, dy)
                 x = x + dx
-                let temperature = CGFloat(temperatureArray[row][col])
+                let temperature = CGFloat(state[row][col])
                 print("t[\(row),\(col)] = \(temperature)")
                 let currentColor = NSColor(red: temperature, green: 0.0,
                     blue: 0.0, alpha: 1.0)
@@ -121,7 +121,7 @@ let k = 3
 
 let tg = Thermograph(data:result[k])
 // let tg = Thermograph(data:[1, 0.8, 0.6, 0.4, 0.2, 0.0, 0.2, 0.4, 0.6, 0.8, 1.0])
-print(tg.temperatureArray)
+print(tg.state)
 
 
 
