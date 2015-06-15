@@ -3,9 +3,6 @@
 import UIKit
 
 
-let Origin = Point()
-let C = Circle(center: Origin, radius: 130)
-
 
 
 class GraphicsView: UIView {
@@ -13,7 +10,8 @@ class GraphicsView: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        C.draw(frame)
+        let R = Double(frame.size.height/2.3)
+        concentricCircles(frame, radius: R, n: 5)
     }
 
 }
