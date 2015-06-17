@@ -9,6 +9,12 @@
 . Thermograph
 . Thermograph2D
 
+
+== Simulation
+
+. heatFlow
+. universe01
+
 == Other
 
 . stackMachine
