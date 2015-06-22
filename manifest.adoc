@@ -1,6 +1,12 @@
 
 == Graphics
 
+coloredShapes:: Primitive shapes
+which draw themselves.  Use as base
+class for other classes which
+need to draw themselves
+
+
 . graphicsHelloWold
 . oneCircle
 . stringDrawing
