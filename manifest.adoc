@@ -1,5 +1,7 @@
 
-== Intrducton
+:toc2:
+
+== Introduction
 
 This outline follows that of the book.
 The bold headings of definition lists
@@ -46,8 +48,7 @@ other (static) drawing programs.
 == Command Line programs
 
 
-
-
+== Graphics
 
 . graphicsHelloWold
 . oneCircle
@@ -66,3 +67,8 @@ other (static) drawing programs.
 == Other
 
 . stackMachine
+
+
+== IOSApps
+
+https://github.com/jxxcarlson/exploring_swift/tree/master/IOSGraphicsApp[IOSGraphicsApp]:: a template for IOS Apps which display a static image.
