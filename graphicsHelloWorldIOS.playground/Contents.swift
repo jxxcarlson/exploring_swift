@@ -7,7 +7,7 @@ func drawFigure(frame: CGRect) {
     let fgColor = UIColor(red: 1.0, green: 0.0,
         blue: 0.4, alpha: 1.0)
     let r1 =  CGRect(x: 40, y: 40,
-        width: 60, height: 60)
+        width: 160, height: 160)
     
     bgColor.setFill()
     UIRectFill(frame)
