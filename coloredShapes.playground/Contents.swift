@@ -78,31 +78,22 @@ class ColoredShape: Shape {
     }
 }
 
-
-func drawFigure(frame: CGRect) {
-    
-    let background  = ColoredShape(x: 0, y: 0, width: Double(frame.width), height: Double(frame.height))
-    let S1 = ColoredShape(x: 0, y: 0, width: 200, height: 200)
-    let S2 = ColoredShape(x: 100, y: 100, width : 200, height: 200)
-    
-    background.draw(frame)
-    S1.draw(frame)
-    S2.draw(frame)
-    
-}
-
-
+let S1 = ColoredShape(x: 0, y: 0,width: 200, height: 200)
+let S2 = ColoredShape(x: 0, y: 0, width: 200, height: 200)
+S2.translate(dx: 100, dy: 100)
 
 class GraphicsView: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        drawFigure(frame)
-        
+        let g:CGFloat = 0.0
+        let bgColor = UIColor(red: g, green: g, blue: g, alpha: 1.0)
+        bgColor.set()
+        UIRectFill(rect)
+        S1.draw(frame)
+        S2.draw(frame)
     }
-    
 }
-
 
 let view = GraphicsView(frame:CGRect(x: 0, y: 0, width: 300, height: 300))
 
