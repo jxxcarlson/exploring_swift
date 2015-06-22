@@ -18,21 +18,21 @@ class ViewController: UIViewController {
     
     func setupLabels() {
         
-        
+        // Background label
         let backgroundFrame = CGRect(x:0, y:0, width: 380, height: 640)
         backgroundLabel.frame = backgroundFrame
         let g: CGFloat = 0.2
-        backgroundLabel.backgroundColor = UIColor(red: g, green: g,
-            blue: g, alpha: 1.0)
+        backgroundLabel.backgroundColor = UIColor(red: g, green: g, blue: g, alpha: 1.0)
         self.view.addSubview(backgroundLabel)
         
+        
+        // Status label
         let labelFrame = CGRect(x: 20, y: 395, width: 335, height: 50)
         statusLabel.frame = labelFrame
         statusLabel.font = UIFont(name: "Courier", size: 18)
         statusLabel.textColor = UIColor.whiteColor()
         statusLabel.backgroundColor = UIColor.blackColor()
         self.view.addSubview(statusLabel)
-        
         statusLabel.text = " Welcome!"
         
     }
@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+      
     }
 
 

@@ -1,10 +1,52 @@
 
-== Graphics
+== Intrducton
 
-coloredShapes:: Primitive shapes
-which draw themselves.  Use as base
+This outline follows that of the book.
+The bold headings of definition lists
+are the names of parts of this repo
+
+== XCode
+
+== The Basics
+
+=== Variables
+
+=== Functions
+
+=== Loops
+
+=== Conditionals
+
+=== Arrays
+
+=== Dictionaries
+
+== Classes Objects, and Graphics
+
+=== Shapes
+
+=== Inheritance and drawing
+
+===  Executing the drawing
+
+https://github.com/jxxcarlson/exploring_swift/tree/master/coloredShapes.playground[coloredShapes]:: Primitive shapes
+which draw themselves.  Use as a base
 class for other classes which
-need to draw themselves
+need to draw themselves, and use
+as a template for static drawing.
+
+=== A Drawing Template
+
+https://github.com/jxxcarlson/exploring_swift/tree/master/drawingTemplate.playground[drawingTemplate]:: A seed from which to grao
+other (static) drawing programs.
+
+
+=== More about classes
+
+== Command Line programs
+
+
+
 
 
 . graphicsHelloWold
