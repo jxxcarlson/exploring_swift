@@ -31,16 +31,11 @@ are the names of parts of this repo
 
 ===  Executing the drawing
 
-https://github.com/jxxcarlson/exploring_swift/tree/master/coloredShapes.playground[coloredShapes]:: Primitive shapes
+https://github.com/jxxcarlson/exploring_swift/tree/master/shapes.playground[shapes]:: Primitive shapes
 which draw themselves.  Use as a base
 class for other classes which
 need to draw themselves, and use
 as a template for static drawing.
-
-=== A Drawing Template
-
-https://github.com/jxxcarlson/exploring_swift/tree/master/drawingTemplate.playground[drawingTemplate]:: A seed from which to grao
-other (static) drawing programs.
 
 
 === More about classes
