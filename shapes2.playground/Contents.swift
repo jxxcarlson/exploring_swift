@@ -9,7 +9,7 @@ import UIKit
 
 class Shape: CustomStringConvertible {
     
-    enum OriginLocation {
+    enum Origin {
         
         case corner
         case center
@@ -19,30 +19,32 @@ class Shape: CustomStringConvertible {
         
         case stroke
         case fill
-        case stroke_file
+        case stroke_fill
     }
 
     static var ox = 0.0
     static var oy = 0.0
-    static var originLocation = OriginLocation.corner
+    static var origin = Origin.corner
+    static var masterMode = DrawMode.stroke_fill
     
     
     var x: Double
     var y: Double
     var width: Double
     var height: Double
-    var color: UIColor
+    
+    var color = UIColor.redColor()
     var strokeColor = UIColor.whiteColor()
     var strokeWidth:CGFloat = 1.0
-    var mode = DrawMode.fill
+    var mode = Shape.masterMode  // default initialization of mode
     
     
     var x_offset: Double {
-        return (Shape.originLocation == .corner) ? 0.0 : -width/2.0
+        return Shape.origin == .corner ? 0.0 : -width/2.0
     }
     
     var y_offset: Double {
-        return Shape.originLocation == .corner ? 0.0 : -height/2.0
+        return Shape.origin == .corner ? 0.0 : -height/2.0
     }
     
     
@@ -98,13 +100,16 @@ class Shape: CustomStringConvertible {
         case .stroke:
             
             self.strokeColor.set()
-            
             CGContextSetLineWidth(context, strokeWidth)
             CGContextStrokeRect(context, r)
             
-        default:
+        case .stroke_fill:
             
+            CGContextFillRect(context, r)
+            self.strokeColor.set()
+            CGContextSetLineWidth(context, strokeWidth)
             CGContextStrokeRect(context, r)
+
         
         }
     }
@@ -113,31 +118,42 @@ class Shape: CustomStringConvertible {
 }
 
 
-func drawFigure(frame:CGRect) {
+
+func drawFigure1(frame: CGRect) {
     
     
     Shape.ox = Double(frame.width/2.0)
     Shape.oy = Double(frame.height/2.0)
-    Shape.originLocation = .center
+    Shape.origin = .center
     
     let bg = Shape(x: 0.0, y: 0.0, width: Double(frame.width), height: Double(frame.height))
-    bg.color = UIColor(red: 0.5, green: 0, blue: 1, alpha: 1.0)
+    bg.color = UIColor.blackColor()
+    bg.mode = .fill
     
-    let S1 = Shape(x: 0, y: 0,width: 100, height: 100)
-    S1.mode = .stroke
+    let S1 = Shape(x: 0.0, y: 0.0,width: 100, height: 100)
+    S1.color = UIColor(red: 1.0, green: 1.0, blue: 0, alpha: 0.3)
+    S1.mode = .stroke_fill
+    S1.strokeColor = UIColor.whiteColor()
+    S1.strokeWidth = 2.0
+    
+    
     let S2 = Shape(x: 0, y: 0, width: 200, height: 200)
-    S2.mode = .stroke
-
+    S2.strokeColor = UIColor.blackColor()
+    S2.color = UIColor(red: 1.0, green: 0.0, blue: 0, alpha: 0.6)
+    S2.strokeWidth = 2.0
+    S2.mode = .stroke_fill
+    
     
     bg.draw(frame)
     S1.draw(frame)
     S2.draw(frame)
     
-    
 }
 
 
-func drawFigure2(frame:CGRect) {
+
+
+public func drawFigure2(frame:CGRect) {
     
     let d = Double(frame.width)
     let k = 0.9
@@ -145,40 +161,41 @@ func drawFigure2(frame:CGRect) {
     
     Shape.ox = Double(frame.width/2.0)
     Shape.oy = Double(frame.height/2.0)
-    Shape.originLocation = .center
-
+    Shape.origin = .center
+    
     
     let bg = Shape(x: 0.0, y: 0.0, width: d, height: d)
     bg.color = UIColor(red: 0.3, green: 0, blue: 1, alpha: 1.0)
     
-    let S1 = Shape(x: 0, y: 0, width: d, height: d)
-    S1.strokeColor = UIColor(red: 1.0, green: 0, blue: 1, alpha: 1.0)
-    S1.mode = .stroke
     
+    let S1 = Shape(x: 0, y: 0, width: d, height: d)
+    S1.strokeColor = UIColor.blackColor()
+    // S1.strokeColor = UIColor(red: 0.6, green: 0, blue: 1.0, alpha: 1.0)
+    S1.color = UIColor.blueColor()
+
+    S1.mode = .stroke
     
     bg.draw(frame)
     
-
     
     for(var i = 0; i < n; i++) {
         
         var ii = Double(i + 1)
-        var jj = 3.0/sqrt(ii)
+        var jj = 7.0/sqrt(ii)
+        // var jj = 12.0/ii
         print(jj)
         S1.strokeWidth = CGFloat(jj)
-
+        
         
         S1.draw(frame)
         S1.dilate(k)
     }
     
-    
-    
 }
 
 
 
-func drawFigure3(frame:CGRect) {
+public func drawFigure3(frame:CGRect) {
     
     let d = Double(frame.width)
     let k = 0.7
@@ -189,21 +206,19 @@ func drawFigure3(frame:CGRect) {
     
     let bg = Shape(x: 0.0, y: 0.0, width: d, height: d)
     bg.color = UIColor(red: 0.4, green: 0.3, blue: 0.3, alpha: 1.0)
+    bg.mode = .fill
     
     let S1 = Shape(x: 0, y: 0, width: 1.5*d2, height: 1.5*d2)
     S1.color = UIColor(red: 0, green: 0, blue: 1, alpha: a/1.5)
-  
+    S1.mode = .fill
+    
     
     let S2 = Shape(x: d, y: d, width: -d2, height: -d2)
     S2.color = UIColor(red: 1, green: 0, blue: 0, alpha: a/2)
+    S2.mode = .fill
     
-    let S3 = Shape(x: 0, y: 0, width: d/7.0, height: d/7.0)
-    S3.color = UIColor(red: 0.4, green: 0.4, blue: 0.6, alpha: 0.5)
-
     
     bg.draw(frame)
-    
-
     
     
     for(var i = 0; i < n; i++) {
@@ -222,7 +237,6 @@ func drawFigure3(frame:CGRect) {
     Shape.ox = 0
     Shape.oy = 0
     
-    // S3.draw(frame)
     
 }
 
@@ -233,7 +247,7 @@ class GraphicsView: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        drawFigure(frame)
+        drawFigure2(frame)
         
     }
 }
