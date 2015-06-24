@@ -17,9 +17,27 @@ as a template for static drawing.
 See http://epsilon.my.noteshare.io/section/classes-and-objects#_shapes[Exploring Swift,
 Classes and Objects]
 
+image:red_and_red_on_black.png[width=100]
+image:diagonality.png[width=100]
+
+https://github.com/jxxcarlson/exploring_swift/tree/master/shapes2.playground[shapes2]::
+Introduces the `Shapes` class -- rectangles which draw themselves.  Use as a base
+class for other classes which
+need to draw themselves, and use
+as a template for static drawing.
+See http://epsilon.my.noteshare.io/section/classes-and-objects#_shapes[Exploring Swift,
+Classes and Objects]
+
 image:circle_waves.png[width=100]
 
 https://github.com/jxxcarlson/exploring_swift/tree/master/circles.playground[circles]::
+Introduces the `Circles` class, obtained by subclassing `Shapes`.
+See http://epsilon.my.noteshare.io/section/classes-and-objects#_circles_and_subclasses[Exploring Swift,
+Circles and Subclasses]
+
+image:circle_waves.png[width=100]
+
+https://github.com/jxxcarlson/exploring_swift/tree/master/circles.playground[circles2]::
 Introduces the `Circles` class, obtained by subclassing `Shapes`.
 See http://epsilon.my.noteshare.io/section/classes-and-objects#_circles_and_subclasses[Exploring Swift,
 Circles and Subclasses]
