@@ -1,49 +1,30 @@
 
 :toc2:
+:imagesdir: images
 
-== Introduction
 
-This outline follows that of the book.
-The bold headings of definition lists
-are the names of parts of this repo
+== Graphics programs
 
-== XCode
 
-== The Basics
+image:red_and_red_on_black.png[width=100]
+image:diagonality.png[width=100]
 
-=== Variables
-
-=== Functions
-
-=== Loops
-
-=== Conditionals
-
-=== Arrays
-
-=== Dictionaries
-
-== Classes Objects, and Graphics
-
-=== Shapes
-
-=== Inheritance and drawing
-
-===  Executing the drawing
-
-https://github.com/jxxcarlson/exploring_swift/tree/master/shapes.playground[shapes]:: Primitive shapes
-which draw themselves.  Use as a base
+https://github.com/jxxcarlson/exploring_swift/tree/master/shapes.playground[shapes]::
+Introduces the `Shapes` class -- rectangles which draw themselves.  Use as a base
 class for other classes which
 need to draw themselves, and use
 as a template for static drawing.
+See http://epsilon.my.noteshare.io/section/classes-and-objects#_shapes[Exploring Swift,
+Classes and Objects]
+
+image:circle_waves.png[width=100]
+
+https://github.com/jxxcarlson/exploring_swift/tree/master/circles.playground[circles]::
+Introduces the `Circles` class, obtained by subclassing `Shapes`.
+See http://epsilon.my.noteshare.io/section/classes-and-objects#_circles_and_subclasses[Exploring Swift,
+Circles and Subclasses]
 
 
-=== More about classes
-
-== Command Line programs
-
-
-== Graphics
 
 . graphicsHelloWold
 . oneCircle
