@@ -206,7 +206,7 @@ func drawFigure1(frame:CGRect) {
     
 }
 
-/*
+
 
 func drawFigure2(frame:CGRect) {
     
@@ -249,7 +249,7 @@ func drawFigure2(frame:CGRect) {
     }
 }
 
-*/
+
 
 
 public func drawFigure3(frame:CGRect) {
@@ -303,7 +303,7 @@ class GraphicsView: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        drawFigure1(frame)
+        drawFigure2(frame)
         
     }
 }

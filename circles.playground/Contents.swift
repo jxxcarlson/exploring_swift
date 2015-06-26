@@ -35,6 +35,16 @@ class Shape: CustomStringConvertible {
         return "\(width)x\(height) shape at (\(x),\(y))"
     }
     
+    func moveto(x x: Double, y: Double) {
+        
+        self.x = x; self.y = y
+    }
+    
+    func setBox(width width: Double, height: Double) {
+        
+        self.width = width; self.height = height
+    }
+    
     func translate(dx dx: Double, dy: Double) {
         
         self.x = self.x + dx
@@ -85,10 +95,45 @@ class Circle: Shape {
     
 }
 
+func drawFigure1(frame:CGRect) {
+    
+    let d = Double(frame.width)
+    
+    let bg = Shape(x: 0.0, y: 0.0, width: d, height: d)
+    bg.color = UIColor.blackColor()
+
+    let S = Circle(x: 0, y: 0, width: d, height: d)
+    S.color = UIColor(red: 1, green: 0, blue: 0, alpha: 0.5)
+    
+    
+    bg.draw(frame)
+    S.draw(frame)
+    S.translate(dx: d, dy: d)
+    S.draw(frame)
+    
+    /*
+    S.translate(dx: -d/2.0, dy: -d/2.0)
+    S.draw(frame)
+    S.dilate(0.4)
+    S.draw(frame)
+*/
+    
+    /*
+    S.moveto(x: d, y: 0)
+    S.setBox(width: d, height: d)
+    S.draw(frame)
+    S.translate(dx: -d, dy: d)
+    S.draw(frame)
+*/
+    
+    
+    
+    
+}
 
 
 
-func drawFigure(frame:CGRect) {
+func drawFigure2(frame:CGRect) {
     
     let d = Double(frame.width)
     let k = 1.2
@@ -128,7 +173,7 @@ class GraphicsView: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        drawFigure(frame)
+        drawFigure1(frame)
         
     }
 }

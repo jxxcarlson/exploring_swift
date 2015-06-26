@@ -17,6 +17,8 @@ as a template for static drawing.
 See http://epsilon.my.noteshare.io/section/classes-and-objects#_shapes[Exploring Swift,
 Classes and Objects]
 
+
+
 // SHAPES2
 image:white_ink_on_black.png[width=100]
 image:white_ink_on_black_2.png[width=100]
@@ -27,13 +29,20 @@ of the origin, and we add the options `mode = .corner`, `mode = .center`
 See http://epsilon.my.noteshare.io/section/classes-and-objects#_shapes[Exploring Swift,
 Classes and Objects]
 
-image:circle_waves.png[width=100]
+
+
+// CIRCLES
+image:circle1c.png[width=100]
 
 https://github.com/jxxcarlson/exploring_swift/tree/master/circles.playground[circles]::
-Introduces the `Circles` class, obtained by subclassing `Shapes`.
+Introduces the `Circles` class, obtained by subclassing `Shapes`, version 2.
 See http://epsilon.my.noteshare.io/section/classes-and-objects#_circles_and_subclasses[Exploring Swift,
 Circles and Subclasses]
 
+
+
+
+// CIRCLES2
 image:circle_waves.png[width=100]
 
 https://github.com/jxxcarlson/exploring_swift/tree/master/circles.playground[circles2]::
