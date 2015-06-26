@@ -83,9 +83,17 @@ class Shape: CustomStringConvertible {
         self.height = k*self.height
     }
     
+    
+    func boundingBox() -> CGRect {
+        
+        return CGRect(x: self.x + Shape.ox + self.x_offset, y: self.y + Shape.oy + self.y_offset, width: self.width, height: self.height)
+    }
+    
     func draw(frame: CGRect) {
         
-        let r =  CGRect(x: self.x + Shape.ox + self.x_offset, y: self.y + Shape.oy + self.y_offset, width: self.width, height: self.height)
+        
+        let r = boundingBox()
+        
         let context = UIGraphicsGetCurrentContext()
         
         self.color.set()
