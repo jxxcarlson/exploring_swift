@@ -5,7 +5,7 @@
 
 == Graphics programs
 
-
+// SHAPES
 image:red_and_red_on_black.png[width=100]
 image:diagonality.png[width=100]
 
@@ -17,14 +17,13 @@ as a template for static drawing.
 See http://epsilon.my.noteshare.io/section/classes-and-objects#_shapes[Exploring Swift,
 Classes and Objects]
 
-image:red_and_red_on_black.png[width=100]
-image:diagonality.png[width=100]
+// SHAPES2
+image:white_ink_on_black.png[width=100]
+image:white_ink_on_black_2.png[width=100]
 
 https://github.com/jxxcarlson/exploring_swift/tree/master/shapes2.playground[shapes2]::
-Introduces the `Shapes` class -- rectangles which draw themselves.  Use as a base
-class for other classes which
-need to draw themselves, and use
-as a template for static drawing.
+We add static variables `ox` and `oy` to the class which define the position
+of the origin, and we add the options `mode = .corner`, `mode = .center`
 See http://epsilon.my.noteshare.io/section/classes-and-objects#_shapes[Exploring Swift,
 Classes and Objects]
 

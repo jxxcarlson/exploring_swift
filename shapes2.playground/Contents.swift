@@ -129,6 +129,72 @@ class Shape: CustomStringConvertible {
 
 func drawFigure1(frame: CGRect) {
     
+    let width = Double(frame.width)
+    let height = Double(frame.height)
+    let k = 0.8
+    
+    Shape.ox = Double(width/2.0)
+    Shape.oy = Double(height/2.0)
+    Shape.origin = .center
+    
+    let bg = Shape(x: 0.0, y: 0.0, width: width, height: height)
+    bg.color = UIColor.blackColor()
+    bg.mode = .fill
+    
+    let S = Shape(x: 0.0, y: 0.0, width: 0.7*width, height: 0.7*height)
+    S.color = UIColor(red: 1.0, green: 1.0, blue: 0, alpha: 0.3)
+    S.mode = .stroke
+    S.strokeColor = UIColor.whiteColor()
+    S.strokeWidth = 1.0
+    
+    
+    bg.draw(frame)
+    S.draw(frame)
+    S.dilate(k)
+    S.draw(frame)
+    
+}
+
+
+func drawFigure1b(frame: CGRect) {
+    
+    let width = Double(frame.width)
+    let height = Double(frame.height)
+    let k = 0.8
+    let n = 10
+    
+    Shape.ox = Double(width/2.0)
+    Shape.oy = Double(height/2.0)
+    Shape.origin = .center
+    
+    let bg = Shape(x: 0.0, y: 0.0, width: width, height: height)
+    bg.color = UIColor.blackColor()
+    bg.mode = .fill
+    
+    let S = Shape(x: 0.0, y: 0.0, width: 0.7*width, height: 0.7*height)
+    S.color = UIColor(red: 1.0, green: 1.0, blue: 0, alpha: 0.3)
+    S.mode = .stroke
+    S.strokeColor = UIColor.whiteColor()
+    S.strokeWidth = 1.0
+    
+    
+    bg.draw(frame)
+    
+    for(var i = 1; i < n; i++) {
+        
+        S.draw(frame)
+        S.dilate(k)
+    }
+    
+}
+
+
+
+
+
+
+func drawFigure2(frame: CGRect) {
+    
     
     Shape.ox = Double(frame.width/2.0)
     Shape.oy = Double(frame.height/2.0)
@@ -161,7 +227,7 @@ func drawFigure1(frame: CGRect) {
 
 
 
-public func drawFigure2(frame:CGRect) {
+public func drawFigure3(frame:CGRect) {
     
     let d = Double(frame.width)
     let k = 0.9
@@ -203,7 +269,9 @@ public func drawFigure2(frame:CGRect) {
 
 
 
-public func drawFigure3(frame:CGRect) {
+
+
+public func drawFigure4(frame:CGRect) {
     
     let d = Double(frame.width)
     let k = 0.7
@@ -255,7 +323,7 @@ class GraphicsView: UIView {
     
     override func drawRect(rect: CGRect) {
         
-        drawFigure2(frame)
+        drawFigure1b(frame)
         
     }
 }
